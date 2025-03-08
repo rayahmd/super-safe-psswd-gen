@@ -2,6 +2,9 @@ let passwordLength = document.getElementById("passwordLength");
 let password = document.getElementById("password");
 let pesan = document.getElementById("pesan");
 let saveButton = document.getElementById("saveBtn");
+
+
+
 function genPassword(len){
     const lower_alpha = "abcdefghijklmnopqrstuvwxyz";
     const upper_alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -19,6 +22,10 @@ function genPassword(len){
 
 
 function getPassword() {
+    if(Number(passwordLength.value) > 10){
+        pesan.textContent = "panjang password maksimal 10!"
+        return;
+    }
     const newPass = genPassword(passwordLength.value)
     password.value = newPass;
     pesan.textContent = "Password sukses dibuat";
